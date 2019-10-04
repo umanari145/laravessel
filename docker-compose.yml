@@ -30,7 +30,7 @@ services:
   mysql:
     image: mysql:5.7
     ports:
-     - "${MYSQL_PORT}:3306"
+     - "33060:3306"
     environment:
       MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
       MYSQL_DATABASE: "${DB_DATABASE}"
@@ -38,8 +38,8 @@ services:
       MYSQL_PASSWORD: "${DB_PASSWORD}"
     volumes:
      - vesselmysql:/var/lib/mysql
-     # - ./docker/mysql/conf.d:/etc/mysql/conf.d
-     # - ./docker/mysql/logs:/var/log/mysql
+     - ./docker/mysql/conf.d:/etc/mysql/conf.d
+     - ./docker/mysql/logs:/var/log/mysql
     networks:
      - vessel
   redis:
